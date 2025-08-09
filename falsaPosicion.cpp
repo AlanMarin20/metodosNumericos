@@ -26,7 +26,7 @@ int main(int argc, char const *argv[]){
 
     do {
         iter++;
-        c = (a + b) / 2;
+        c = (a * f(b) - b * f(a))/(f(b) - f(a));
         if (f(a) * f(c) > 0){
             a = c;
         }else if (f(a) * f(c) < 0){
@@ -40,5 +40,5 @@ int main(int argc, char const *argv[]){
     }while (error > tolerancia);
     printf("La raiz es: %.12f, con error de: %.14f\n",c ,error);
     printf("Cantidad de iteraciones para encontrarlo: %d\n",iter);
+    
 }   
-
