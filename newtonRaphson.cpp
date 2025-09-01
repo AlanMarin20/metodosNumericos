@@ -1,6 +1,3 @@
-
-//############# NO ANDA AUN #############
-
 #include <iostream> 
 #include <stdio.h>
 #include <math.h>
@@ -21,11 +18,11 @@ int main(int argc, char const *argv[]){
 
     do {
         if(fabs((f(x0 + 0.01) - f(x0))/0.01) == 0){
-            printf("Derivada menor que cero\n");
+            printf("Derivada igual que cero\n");
             exit(1);
         }
         iter++;
-        if(fabs((f(x0 + 0.001) - f(x0))/0.001) < 1e-4){
+        if(fabs((f(x0 + 0.001) - f(x0))/0.001) < 1e-10){
             printf("la derivada es muy chica\n");
             exit(1);
         }else{
@@ -34,7 +31,7 @@ int main(int argc, char const *argv[]){
             error = fabs(x1 - x0);
             x0 = x1;
         }
-    }while (error > tolerancia || iter < 10000);
+    }while (error > tolerancia && iter < 10000);
     printf("\n\nLa raiz es: %.8f, con error de: %.10f\n",x0 ,error);
     printf("Cantidad de iteraciones para encontrarlo: %d\n",iter);
     printf("F(x1) es: %8.f\n", f(x1));
