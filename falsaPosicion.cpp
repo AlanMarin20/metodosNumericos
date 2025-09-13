@@ -16,6 +16,7 @@ int main(int argc, char const *argv[]){
     printf("Ingrese b: ");
     scanf("%lf", &b);
 
+    //Verifico si la raiz esta entre x0 y x1
     if (f(a) * f(b) > 0) { //NO esta la raiz en el intervalo
         printf("El intervalo [%.2f, %.2f] no tiene raiz\n", a, b);
         exit(1); 
@@ -26,11 +27,11 @@ int main(int argc, char const *argv[]){
 
     do {
         iter++;
-        c = (a * f(b) - b * f(a))/(f(b) - f(a));
+        c = (a * f(b) - b * f(a))/(f(b) - f(a)); //Marco la raiz de la recta que une a los puntos
         if (f(a) * f(c) > 0){
-            a = c;
+            a = c; //Si la raiz esta a la derecha
         }else if (f(a) * f(c) < 0){
-            b = c;
+            b = c; //Si la raiz esta a la izquierda
         }
         else{
             printf("c= %.10f es la raiz\n", c);

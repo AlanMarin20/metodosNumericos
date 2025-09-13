@@ -17,17 +17,17 @@ int main(int argc, char const *argv[]){
     printf("derivada: %8.f",(f(x0 + 0.001) - f(x0))/0.001);
 
     do {
-        if(fabs((f(x0 + 0.01) - f(x0))/0.01) == 0){
+        if(fabs((f(x0 + 0.01) - f(x0))/0.01) == 0){ //Verifico que el denominador no sea = 0
             printf("Derivada igual que cero\n");
             exit(1);
         }
         iter++;
-        if(fabs((f(x0 + 0.001) - f(x0))/0.001) < 1e-10){
+        if(fabs((f(x0 + 0.001) - f(x0))/0.001) < 1e-10){ //Verifico que el denominador no sea demasiado pequeño
             printf("la derivada es muy chica\n");
             exit(1);
         }else{
             derivada = ((f(x0 + 0.001) - f(x0))/0.001);
-            x1 = x0 - (f(x0) / derivada);
+            x1 = x0 - (f(x0) / derivada); //Marco la raiz de la recta tangente a la curva en xviejo
             error = fabs(x1 - x0);
             x0 = x1;
         }

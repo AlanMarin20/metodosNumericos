@@ -3,7 +3,7 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = cos(x) ;
+    double funcion = pow(x,2) - sin(pow(x,0.5)) ;
     return  funcion;
 }
 
@@ -27,7 +27,7 @@ int main(int argc, char const *argv[]){
             printf("Denominador muy chico\n");
             exit(2);
         }else{
-            x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0));
+            x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0)); //Marco la recta que une a los dos puntos
             error = fabs(x1 - x0);
             x0 = x1;
             x1 = x2;

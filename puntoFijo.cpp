@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]){
             printf("El metodo no converge.\n El valor absoluto de la derivada es: %.5f\n", fabs((f(x0 + 0.01) - f(x0))/0.01));
             exit(1);
         }else{
-            x1 = f(x0);
+            x1 = f(x0); //Acerco la raiz al f(xviejo)
             error = fabs(x1 - x0);
             x0 = x1;
         }
