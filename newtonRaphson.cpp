@@ -3,13 +3,13 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = cos(x) ;
+    double funcion = 2*x + log(x) - sin(3*x) ;
     return  funcion;
 }
 
 int main(int argc, char const *argv[]){
     double x0 = 0, x1 = 0, error = 0, derivada = 0; 
-    double tolerancia = 1e-5;
+    double tolerancia = 1e-6;
     int iter = 0;
 
     printf("Ingrese x0: ");
@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]){
             x0 = x1;
         }
     }while (error > tolerancia && iter < 10000);
-    printf("\n\nLa raiz es: %.8f, con error de: %.10f\n",x0 ,error);
+    printf("\n\nLa raiz es: %.8f, con error de: %.8f\n",x0 ,error);
     printf("Cantidad de iteraciones para encontrarlo: %d\n",iter);
     printf("F(x1) es: %8.f\n", f(x1));
 }   
