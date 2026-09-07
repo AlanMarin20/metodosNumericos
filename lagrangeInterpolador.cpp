@@ -3,6 +3,10 @@
 
 int main() {
     FILE *fp = fopen("puntos.txt", "r");
+    // Formato puntos:
+    // Numero de puntos (ej:2)
+    // x0 y0
+    // x1 y1
     if (!fp){
         printf("No se pudo abrir 'puntos.txt'\n");
         return 1;

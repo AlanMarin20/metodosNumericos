@@ -5,6 +5,10 @@
 int main() {
     int n;
     FILE *fp = fopen("matriz.txt", "r");
+    // Formato Matriz:
+    // Numero de filas (ej:2)
+    // x11 x12 b1
+    // x21 x22 b2
     if (!fp) {
         printf("No se pudo abrir 'matriz.txt'\n");
         return 1;

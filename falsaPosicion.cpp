@@ -3,7 +3,7 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = ((9.81*x)/14)*(1-exp(-(14/x)*7))-35;
+    double funcion = -2 + 7*x -5*pow(x,2) +6*pow(x,3);
     return  funcion;
 }
 
@@ -29,9 +29,9 @@ int main(int argc, char const *argv[]){
         iter++;
         c = (a * f(b) - b * f(a))/(f(b) - f(a)); //Marco la raiz de la recta que une a los puntos
         if (f(a) * f(c) > 0){
-            a = c; //Si la raiz esta a la derecha
+            b = c; //Si la raiz esta a la derecha
         }else if (f(a) * f(c) < 0){
-            b = c; //Si la raiz esta a la izquierda
+            a = c; //Si la raiz esta a la izquierda
         }
         else{
             printf("c= %.10f es la raiz\n", c);

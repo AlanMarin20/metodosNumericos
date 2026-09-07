@@ -3,7 +3,7 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = ((x+1)/(x+4)) - 0.25 * x;
+    double funcion = -2 + 7*x -5*pow(x,2) +6*pow(x,3);
     return  funcion;
 }
 
@@ -36,7 +36,7 @@ int main(int argc, char const *argv[]){
         else{
             printf("c= %.10f es la raiz\n", c); 
         }
-        error = ( (fabs(c - cviejo)) / (0.5 * fabs(c - cviejo)) ) * 100; //Calculo el error
+        error = (fabs(c - cviejo)); //Calculo el error
         cviejo = c;
     }while (error > tolerancia);
     printf("La raiz es: %.10f, con error de: %.14f\n",c ,error);

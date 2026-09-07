@@ -3,7 +3,7 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = pow(x,2) - sin(pow(x,0.5)) ;
+    double funcion = (pow(x,3)-x -1) ;
     return  funcion;
 }
 

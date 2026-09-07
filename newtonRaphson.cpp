@@ -3,32 +3,36 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = ((x+1)/(x+4)) - 0.25 * x ;
+    double funcion = (pow(x,3)-x -1);
     return  funcion;
+}
+double Derivada(double x){
+    double derivada = (3*pow(x,2)-1);
+    return  derivada;
+    // fabs((f(x0 + 0.01) - f(x0))/0.01) aproximacion
 }
 
 int main(int argc, char const *argv[]){
     double x0 = 0, x1 = 0, error = 0, derivada = 0; 
-    double tolerancia = 0.01;
+    double tolerancia = 0.001;
     int iter = 0;
 
     printf("Ingrese x0: ");
     scanf("%lf", &x0);
-    printf("derivada: %8.f",(f(x0 + 0.001) - f(x0))/0.001);
 
     do {
-        if(fabs((f(x0 + 0.01) - f(x0))/0.01) == 0){ //Verifico que el denominador no sea = 0
+        if(fabs(Derivada(x0)) == 0){ //Verifico que el denominador no sea = 0
             printf("Derivada igual que cero\n");
             exit(1);
         }
         iter++;
-        if(fabs((f(x0 + 0.001) - f(x0))/0.001) < 1e-10){ //Verifico que el denominador no sea demasiado pequeño
+        if(fabs(Derivada(x0)) < 1e-10){ //Verifico que el denominador no sea demasiado pequeño
             printf("la derivada es muy chica\n");
             exit(1);
         }else{
-            derivada = ((f(x0 + 0.001) - f(x0))/0.001);
+            derivada = Derivada(x0);
             x1 = x0 - (f(x0) / derivada); //Marco la raiz de la recta tangente a la curva en xviejo
-            error = ( (fabs(x1 - x0)) / (0.5 * fabs(x1 - x0)) * 100) ;
+            error = (fabs(x1 - x0));
             x0 = x1;
         }
     }while (error > tolerancia && iter < 4);
