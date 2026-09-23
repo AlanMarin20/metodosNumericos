@@ -3,7 +3,7 @@
 #include <math.h>
 
 double f(double x){
-    double funcion = -2 + 7*x -5*pow(x,2) +6*pow(x,3);
+    double funcion = pow(x,2) - 2;
     return  funcion;
 }
 

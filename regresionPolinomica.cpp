@@ -34,6 +34,34 @@ int main() {
         for(int i=0;i<n;i++){
             b[l]+=pow(x[i],l)*y[i];
         }
+        //----- TENDRIA QUE COMENTAR EL FOR L PORQUE NO LO USO
+        // for(int i=0;i<n;i++){
+        //     b[0]+=y[i]*sin(x[i]);
+        // }
+        // for(int i=0;i<n;i++){
+        //     b[1]+=y[i]*cos(x[i]);
+        // }
+        // double sum=0.0;
+        // for(int i=0;i<n;i++){
+        //     sum+=pow(sin(x[i]),2);
+        // }
+        // A[0][0]=sum;
+        // sum=0.0;
+        // for(int i=0;i<n;i++){
+        //     sum+=cos(x[i])*sin(x[i]);
+        // }
+        // A[0][1]=sum;
+        // sum=0.0;
+        // for(int i=0;i<n;i++){
+        //     sum+=cos(x[i])*sin(x[i]);
+        // }
+        // A[1][0]=sum;
+        // sum=0.0;
+        // for(int i=0;i<n;i++){
+        //     sum+=pow(cos(x[i]),2);
+        // }
+        // A[1][1]=sum;
+        //-----
         for(int m=0;m<=p;m++){
             double sum=0.0;
             for(int i=0;i<n;i++){
@@ -93,6 +121,12 @@ int main() {
     for(int i=0;i<n;i++){
         double yi_pred=0.0;
         for(int j=0;j<=p;j++) yi_pred+=coef[j]*pow(x[i],j);
+        // EN CASO DE UTILIZAR EL COS SEN
+        // for(int i=0;i<n;i++){
+        //     double yi_pred = coef[0]*sin(x[i]) + coef[1]*cos(x[i]);
+        //     SR += (y[i]-yi_pred)*(y[i]-yi_pred);
+        // ST += (y[i]-yprom)*(y[i]-yprom);
+        // }
         SR+=(y[i]-yi_pred)*(y[i]-yi_pred);
         ST+=(y[i]-yprom)*(y[i]-yprom);
     }
