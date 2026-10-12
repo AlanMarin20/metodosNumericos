@@ -87,7 +87,7 @@ int main() {
     }
 
     for(int i = 0; i <= n; i++) {
-        fprintf(fp, "%.6f %.6f\n", x[i], y[i]);
+        fprintf(fp, "%.6f\t%.6f\n", x[i], y[i]);
     }
 
     fclose(fp);
